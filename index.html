@@ -16,7 +16,15 @@
 
   <nav class="divisions" id="divisions" aria-label="Talent divisions"></nav>
 
-  <div class="rail" id="rail"></div>
+  <div class="rail-wrap at-start" id="railWrap">
+    <button class="rail-nav prev" id="railPrev" type="button" aria-label="Scroll to previous talent" disabled>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <div class="rail" id="rail"></div>
+    <button class="rail-nav next" id="railNext" type="button" aria-label="Scroll to next talent">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+  </div>
 
   <p class="empty" id="empty" hidden>New talent for this division is coming soon.</p>
 
