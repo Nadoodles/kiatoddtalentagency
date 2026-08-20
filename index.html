@@ -3,33 +3,129 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Talent Card — Kia Todd Talent</title>
+  <title>Kia Todd Talent — Boutique Talent Representation in Los Angeles</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <div class="masthead">
-    <span class="eyebrow">Component Concept — Meet Our Talent</span>
-    <h1>The Talent Card</h1>
-    <p class="sub">Choose a division to see the talent it represents. Click a card to flip it and surface a handful of selected credits — enough to spark recognition, not a full résumé.</p>
-  </div>
+  <header class="site-nav" id="siteNav"></header>
 
-  <nav class="divisions" id="divisions" aria-label="Talent divisions"></nav>
+  <main class="page">
 
-  <div class="rail-wrap at-start" id="railWrap">
-    <button class="rail-nav prev" id="railPrev" type="button" aria-label="Scroll to previous talent" disabled>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
-    </button>
-    <div class="rail" id="rail"></div>
-    <button class="rail-nav next" id="railNext" type="button" aria-label="Scroll to next talent">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-    </button>
-  </div>
+    <section class="hero">
+      <span class="hero-eyebrow">Kia Todd Talent Agency</span>
+      <h1>Boutique talent representation in Los Angeles.</h1>
+      <p class="hero-sub">Representing emerging and established talent across theatrical, commercial, voice over, hosting, and youth work.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="talent.html">View Our Talent</a>
+        <a class="btn" href="submissions.html">Submit to the Agency</a>
+      </div>
+    </section>
 
-  <p class="empty" id="empty" hidden>New talent for this division is coming soon.</p>
+    <section class="section" aria-labelledby="featuredHeading">
+      <div class="section-head">
+        <h2 id="featuredHeading">Meet the Talent</h2>
+        <a class="section-link" href="talent.html">View All Talent →</a>
+      </div>
 
-  <p class="hint">Drag, scroll, or use the keyboard to move along the row. Press Enter or Space on a focused card to flip it.</p>
+      <nav class="divisions" id="divisions" aria-label="Talent divisions"></nav>
 
-  <script src="script.js"></script>
+      <div class="rail-wrap at-start" id="railWrap">
+        <button class="rail-nav prev" id="railPrev" type="button" aria-label="Scroll to previous talent" disabled>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <div class="rail" id="rail"></div>
+        <button class="rail-nav next" id="railNext" type="button" aria-label="Scroll to next talent">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+      </div>
+
+      <p class="empty" id="empty" hidden>New talent for this division is coming soon.</p>
+
+      <p class="hint">Drag, scroll, or use the keyboard to move along the row. Press Enter or Space on a focused card to flip it.</p>
+    </section>
+
+    <section class="section" aria-labelledby="divisionsHeading">
+      <div class="section-head">
+        <h2 id="divisionsHeading">Our Divisions</h2>
+      </div>
+      <div class="divisions-grid" id="divisionsGrid"></div>
+    </section>
+
+    <section class="about" id="about" aria-labelledby="aboutHeading">
+      <div class="about-inner reveal">
+        <div class="about-media">
+          <span class="about-initials">KT</span>
+          <span class="about-photo-note">Photo pending</span>
+        </div>
+        <div class="about-copy">
+          <span class="eyebrow">Founder &amp; CEO</span>
+          <h2 id="aboutHeading">Meet Kia Todd</h2>
+          <p class="lede">She built her agency on a simple belief: talent, once recognized, deserves someone willing to invest in it.</p>
+          <p class="story-block"><a class="section-link" href="about.html">Learn More →</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="credibilityHeading">
+      <div class="section-head">
+        <h2 id="credibilityHeading">Why Kia Todd Talent</h2>
+      </div>
+      <div class="credibility">
+        <div class="credibility-item">
+          <span class="label">Affiliation</span>
+          <span class="value">SAG-AFTRA Franchised</span>
+        </div>
+        <div class="credibility-item">
+          <span class="label">Based In</span>
+          <span class="value">Los Angeles, California</span>
+        </div>
+        <div class="credibility-item">
+          <span class="label">Service</span>
+          <span class="value">Full-Service Talent Representation</span>
+        </div>
+        <div class="credibility-item">
+          <span class="label">Divisions</span>
+          <span class="value">Theatrical, Commercial, Host, Voice Over, Kids</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-bottom:0" aria-labelledby="ctaHeading">
+      <h2 id="ctaHeading" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;">Get in touch</h2>
+      <div class="cta-band">
+        <div class="cta-panel">
+          <h3>Looking for talent?</h3>
+          <a class="btn btn-primary" href="talent.html">Explore Our Roster</a>
+        </div>
+        <div class="cta-panel">
+          <h3>Interested in representation?</h3>
+          <a class="btn" href="submissions.html">Submit</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" id="siteFooter"></footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/cards.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/reveal.js"></script>
+  <script src="js/home.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var grid = document.getElementById("divisionsGrid");
+      grid.innerHTML = DIVISIONS.map(function (d) {
+        return (
+          '<a class="division-card" href="talent.html?division=' + d.id + '">' +
+            '<span class="name">' + d.label + "</span>" +
+            '<span class="tagline">' + d.tagline + "</span>" +
+          "</a>"
+        );
+      }).join("");
+    });
+  </script>
 </body>
 </html>

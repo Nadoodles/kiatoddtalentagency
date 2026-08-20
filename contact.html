@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Kia Todd Talent</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="site-nav" id="siteNav"></header>
+
+  <main class="page">
+
+    <div class="talent-hero">
+      <h1>Get in Touch</h1>
+      <p>For industry, casting, and general inquiries. Looking for representation? Visit the Submissions page instead.</p>
+    </div>
+
+    <section class="section" style="margin-top:0;" aria-labelledby="contactHeading">
+      <div class="contact-grid">
+        <div class="contact-block">
+          <h3>Industry &amp; Casting Inquiries</h3>
+          <p>For casting breakdowns, bookings, and production inquiries, reach out through the agency's social channels below.</p>
+        </div>
+        <div class="contact-block">
+          <h3>Looking for Representation?</h3>
+          <p>This page is for general inquiries only. Talent submissions are handled separately.</p>
+          <p><a href="submissions.html">Submit to Kia Todd Talent →</a></p>
+        </div>
+        <div class="contact-block">
+          <h3>Location</h3>
+          <p>5850 Canoga Ave, Suite 400<br />Woodland Hills, CA 91367</p>
+        </div>
+        <div class="contact-block">
+          <h3>Follow the Agency</h3>
+          <p>No phone calls for submissions, please — the fastest way to reach the agency is through Instagram or Facebook.</p>
+          <div class="contact-socials" id="contactSocials"></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" id="siteFooter"></footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/cards.js"></script>
+  <script src="js/nav.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var wrap = document.getElementById("contactSocials");
+      wrap.innerHTML = SOCIAL_LINKS.map(function (s) {
+        return (
+          '<a href="' + s.href + '" target="_blank" rel="noopener noreferrer">' +
+          (SOCIAL_ICONS[s.icon] || "") + escapeHtml(s.label) +
+          "</a>"
+        );
+      }).join("");
+    });
+  </script>
+</body>
+</html>
