@@ -1,4 +1,5 @@
 :root{
+  --font-display:"Fraunces", Georgia, "Iowan Old Style", "Times New Roman", serif;
   --ground:#F6F3EE;
   --ground-raised:#FFFFFF;
   --ink:#181614;
@@ -46,11 +47,25 @@ body{
   color:var(--ink);
   font-family:ui-sans-serif, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
   padding:0 0 64px;
+  position:relative;
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+  opacity:.035;
+  mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
 }
 
 .page{
+  position:relative;
+  z-index:2;
   padding-top:clamp(28px, 6vw, 72px);
 }
+.site-footer{ position:relative; z-index:2; }
 
 /* --- site nav --- */
 .site-nav{
@@ -71,7 +86,7 @@ body{
   gap:24px;
 }
 .nav-brand{
-  font-family:Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-family:var(--font-display);
   font-size:17px;
   letter-spacing:-.005em;
   color:var(--ink);
@@ -139,7 +154,16 @@ body{
 .hero{
   max-width:1240px;
   margin:0 auto;
-  padding:clamp(56px, 10vw, 120px) clamp(20px, 6vw, 56px) clamp(48px, 8vw, 96px);
+  padding:clamp(48px, 8vw, 100px) clamp(20px, 6vw, 56px) clamp(48px, 8vw, 96px);
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  align-items:center;
+  gap:clamp(32px, 5vw, 64px);
+}
+@media (max-width:860px){
+  .hero{ grid-template-columns:1fr; }
+}
+.hero-copy{
   display:flex;
   flex-direction:column;
   align-items:flex-start;
@@ -153,20 +177,20 @@ body{
   font-weight:600;
 }
 .hero h1{
-  font-family:Georgia, "Iowan Old Style", "Times New Roman", serif;
-  font-size:clamp(40px, 7vw, 78px);
+  font-family:var(--font-display);
+  font-size:clamp(40px, 6vw, 68px);
   font-weight:400;
-  line-height:.98;
+  line-height:1;
   letter-spacing:-.015em;
   margin:0;
-  max-width:14ch;
+  max-width:13ch;
   text-wrap:balance;
 }
 .hero-sub{
   font-size:clamp(15px, 1.6vw, 18px);
   line-height:1.55;
   color:var(--ink-soft);
-  max-width:52ch;
+  max-width:48ch;
   margin:0;
 }
 .hero-actions{
@@ -174,6 +198,52 @@ body{
   flex-wrap:wrap;
   gap:14px;
   margin-top:8px;
+}
+
+.hero-media{
+  position:relative;
+  height:clamp(340px, 42vw, 480px);
+}
+.hero-photo{
+  position:absolute;
+  overflow:hidden;
+  border:1px solid var(--hairline);
+  background:linear-gradient(155deg, var(--mono-a), var(--mono-b));
+}
+.hero-photo img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center top;
+  filter:grayscale(1) contrast(1.08) brightness(.96);
+}
+.hero-photo::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:var(--accent);
+  mix-blend-mode:multiply;
+  opacity:.28;
+}
+.hero-photo-a{
+  width:62%;
+  aspect-ratio:4/5;
+  top:0;
+  left:0;
+  z-index:1;
+}
+.hero-photo-b{
+  width:52%;
+  aspect-ratio:4/5;
+  bottom:0;
+  right:0;
+  z-index:2;
+  box-shadow:-18px 18px 0 0 var(--ground);
+}
+@media (max-width:860px){
+  .hero-media{ display:none; }
 }
 .btn{
   display:inline-flex;
@@ -213,7 +283,7 @@ body{
   flex-wrap:wrap;
 }
 .section-head h2{
-  font-family:Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-family:var(--font-display);
   font-size:clamp(26px, 3.4vw, 36px);
   font-weight:400;
   letter-spacing:-.01em;
@@ -231,6 +301,35 @@ body{
   transition:color .18s ease, border-color .18s ease;
 }
 .section-link:hover{ color:var(--accent); border-color:var(--accent); }
+.section-eyebrow{
+  font-size:12px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--accent);
+  font-weight:600;
+}
+
+/* --- pillars --- */
+.pillars{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+  gap:clamp(28px, 4vw, 44px);
+  margin-bottom:clamp(48px, 7vw, 72px);
+}
+.pillar-name{
+  display:block;
+  font-family:var(--font-display);
+  font-size:20px;
+  color:var(--ink);
+  margin-bottom:10px;
+}
+.pillar p{
+  margin:0;
+  font-size:14px;
+  line-height:1.6;
+  color:var(--ink-soft);
+  max-width:32ch;
+}
 
 /* --- divisions teaser --- */
 .divisions-grid{
@@ -252,7 +351,7 @@ body{
 }
 .division-card:hover{ background:var(--ground-raised); }
 .division-card .name{
-  font-family:Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-family:var(--font-display);
   font-size:19px;
   color:var(--ink);
 }
@@ -304,7 +403,7 @@ body{
   gap:18px;
 }
 .cta-panel h3{
-  font-family:Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-family:var(--font-display);
   font-size:clamp(20px, 2.4vw, 26px);
   font-weight:400;
   margin:0;
@@ -323,7 +422,7 @@ body{
   gap:16px;
 }
 .site-footer .foot-brand{
-  font-family:Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-family:var(--font-display);
   font-size:15px;
   color:var(--ink);
 }
@@ -350,7 +449,7 @@ body{
   padding:clamp(36px, 5vw, 56px) clamp(20px, 6vw, 56px) clamp(28px, 4vw, 40px);
 }
 .talent-hero h1{
-  font-family:Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-family:var(--font-display);
   font-size:clamp(32px, 4.6vw, 48px);
   font-weight:400;
   letter-spacing:-.01em;
@@ -416,7 +515,7 @@ body{
   font-weight:600;
 }
 h1{
-  font-family:Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-family:var(--font-display);
   font-size:clamp(30px, 4.4vw, 46px);
   font-weight:400;
   line-height:1.06;
@@ -620,7 +719,7 @@ h1{
   gap:10px;
 }
 .photo .id .name{
-  font-family:Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-family:var(--font-display);
   font-size:21px;
   color:#F6F3EE;
   letter-spacing:-.005em;
@@ -686,7 +785,7 @@ h1{
   background:var(--ground-raised);
 }
 .face-back .name{
-  font-family:Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-family:var(--font-display);
   font-size:23px;
   margin:0 0 4px;
   letter-spacing:-.005em;
@@ -714,7 +813,7 @@ h1{
   gap:13px;
 }
 .credits li{
-  font-family:Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-family:var(--font-display);
   font-size:16.5px;
   line-height:1.3;
   color:var(--ink);
@@ -731,9 +830,15 @@ h1{
   font-style:italic;
   color:var(--ink-soft);
 }
-.imdb{
+.back-links{
   margin-top:auto;
   padding-top:22px;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:10px;
+}
+.imdb, .view-profile{
   display:inline-flex;
   align-items:center;
   gap:6px;
@@ -742,11 +847,11 @@ h1{
   font-size:13px;
   letter-spacing:.08em;
   text-transform:uppercase;
-  align-self:flex-start;
   transition:color .2s ease, gap .2s ease;
 }
-.imdb:hover{ color:var(--accent); gap:9px; }
-.imdb svg{ width:11px; height:11px; }
+.imdb:hover, .view-profile:hover{ color:var(--accent); gap:9px; }
+.imdb svg, .view-profile svg{ width:11px; height:11px; }
+.view-profile{ color:var(--accent); font-weight:600; }
 
 @media (prefers-reduced-motion: reduce){
   .flip{ transition:none; }
@@ -784,30 +889,21 @@ h1{
   aspect-ratio:4/5;
   border:1px solid var(--hairline);
   background:linear-gradient(155deg, var(--mono-a), var(--mono-b));
-  display:flex;
-  align-items:center;
-  justify-content:center;
   overflow:hidden;
 }
-.about-initials{
-  font-family:Georgia, "Iowan Old Style", "Times New Roman", serif;
-  font-size:72px;
-  color:rgba(246,243,238,.5);
-  letter-spacing:.02em;
-}
-.about-photo-note{
+.about-media img{
   position:absolute;
-  left:16px;
-  bottom:16px;
-  font-size:10px;
-  letter-spacing:.1em;
-  text-transform:uppercase;
-  color:rgba(246,243,238,.5);
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center top;
+  display:block;
 }
 
 .about-copy .eyebrow{ display:block; margin-bottom:12px; }
 .about-copy h2{
-  font-family:Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-family:var(--font-display);
   font-size:clamp(28px, 3.6vw, 40px);
   font-weight:400;
   letter-spacing:-.01em;
@@ -815,7 +911,7 @@ h1{
   text-wrap:balance;
 }
 .about-copy .lede{
-  font-family:Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-family:var(--font-display);
   font-size:clamp(20px, 2.2vw, 25px);
   line-height:1.4;
   color:var(--ink);
@@ -940,7 +1036,7 @@ h1{
   gap:clamp(32px, 5vw, 56px);
 }
 .contact-block h3{
-  font-family:Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-family:var(--font-display);
   font-size:19px;
   font-weight:400;
   margin:0 0 10px;
@@ -976,3 +1072,180 @@ h1{
 }
 .contact-socials a:hover{ color:var(--accent); border-color:var(--accent); }
 .contact-socials svg{ width:15px; height:15px; }
+
+/* --- talent EPK / profile page --- */
+.epk-hero-wrap{
+  max-width:1100px;
+  margin:0 auto;
+  padding:clamp(20px, 4vw, 32px) clamp(20px, 6vw, 56px) 0;
+}
+.epk-hero-photo{
+  position:relative;
+  width:100%;
+  max-width:560px;
+  aspect-ratio:3/4;
+  overflow:hidden;
+  border:1px solid var(--hairline);
+  background:linear-gradient(155deg, var(--mono-a), var(--mono-b));
+}
+.epk-hero-photo img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center top;
+}
+.epk-scrim{
+  position:absolute;
+  left:0; right:0; bottom:0;
+  height:55%;
+  background:linear-gradient(to top, var(--scrim-strong), var(--scrim-soft));
+  pointer-events:none;
+}
+.epk-hero-content{
+  position:absolute;
+  left:0; right:0; bottom:0;
+  padding:0 24px 24px;
+}
+.epk-back{
+  display:inline-block;
+  font-size:12px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+  text-decoration:none;
+  margin-bottom:clamp(16px, 3vw, 24px);
+  transition:color .18s ease;
+}
+.epk-back:hover{ color:var(--accent); }
+.epk-hero-content h1{
+  font-family:var(--font-display);
+  font-size:clamp(28px, 4vw, 40px);
+  font-weight:400;
+  letter-spacing:-.01em;
+  color:#F6F3EE;
+  margin:0 0 12px;
+  text-wrap:balance;
+}
+.epk-tags{ display:flex; flex-wrap:wrap; gap:8px; }
+.epk-tag{
+  font-size:11px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:#F6F3EE;
+  border:1px solid rgba(246,243,238,.4);
+  padding:6px 14px;
+}
+
+.epk-subnav{
+  position:sticky;
+  top:64px;
+  z-index:10;
+  background:var(--ground);
+  border-bottom:1px solid var(--hairline);
+  max-width:1100px;
+  margin:0 auto;
+  padding:0 clamp(20px, 6vw, 56px);
+  display:flex;
+  gap:clamp(20px, 3vw, 32px);
+}
+.epk-subnav a{
+  font-size:12px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+  text-decoration:none;
+  padding:16px 0;
+  border-bottom:2px solid transparent;
+  transition:color .18s ease, border-color .18s ease;
+}
+.epk-subnav a:hover{ color:var(--ink); border-color:var(--hairline); }
+
+.epk-body{
+  max-width:1100px;
+  margin:0 auto;
+  padding:clamp(40px, 6vw, 64px) clamp(20px, 6vw, 56px) 0;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:clamp(40px, 6vw, 72px);
+}
+@media (max-width:720px){
+  .epk-body{ grid-template-columns:1fr; }
+}
+.epk-body-actions{ grid-template-columns:1fr; padding-top:0; }
+.epk-section{ scroll-margin-top:120px; }
+.epk-section h2{
+  font-size:11px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+  margin:0 0 16px;
+}
+.epk-section p{
+  font-size:15px;
+  line-height:1.7;
+  color:var(--ink);
+  margin:0;
+  max-width:56ch;
+}
+.epk-credit-group + .epk-credit-group{ margin-top:28px; }
+.epk-credit-group h3{
+  font-size:10.5px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--accent);
+  margin:0 0 12px;
+  font-weight:600;
+}
+.epk-credits{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+.epk-credits li{
+  font-family:var(--font-display);
+  font-size:19px;
+  color:var(--ink);
+}
+.epk-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+}
+
+.epk-repped-by{
+  max-width:1100px;
+  margin:clamp(56px, 8vw, 88px) auto 0;
+  padding:clamp(40px, 6vw, 64px) clamp(20px, 6vw, 56px) clamp(56px, 8vw, 88px);
+  border-top:1px solid var(--hairline);
+  text-align:center;
+}
+.epk-repped-by .label{
+  display:block;
+  font-size:11px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+  margin-bottom:10px;
+}
+.epk-repped-by .agency-name{
+  font-family:var(--font-display);
+  font-size:clamp(22px, 3vw, 28px);
+  color:var(--ink);
+  margin:0 0 18px;
+}
+.epk-repped-by a{
+  font-size:12.5px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--ink);
+  text-decoration:none;
+  border-bottom:1px solid var(--ink);
+  padding-bottom:2px;
+  transition:color .18s ease, border-color .18s ease;
+}
+.epk-repped-by a:hover{ color:var(--accent); border-color:var(--accent); }

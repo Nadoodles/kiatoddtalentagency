@@ -15,6 +15,11 @@ function escapeHtml(str) {
   });
 }
 
+// credits entries may be a plain string or a { title, category } object.
+function creditTitle(c) {
+  return typeof c === "string" ? c : c.title;
+}
+
 function frontFace(person) {
   return (
     '<div class="face face-front">' +
@@ -36,22 +41,28 @@ function backFace(person) {
   var body;
   if (person.credits && person.credits.length) {
     var items = person.credits
-      .map(function (c) { return "<li>" + escapeHtml(c) + "</li>"; })
+      .map(function (c) { return "<li>" + escapeHtml(creditTitle(c)) + "</li>"; })
       .join("");
-    var link = person.imdb
-      ? '<a class="imdb" href="' + person.imdb + '" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">IMDb ' + ARROW_ICON + "</a>"
-      : "";
-    body = '<p class="label">Selected Work</p><ul class="credits">' + items + "</ul>" + link;
+    body = '<p class="label">Selected Work</p><ul class="credits">' + items + "</ul>";
   } else if (person.bio) {
     body = '<p class="label">About</p><p class="bio">' + escapeHtml(person.bio) + "</p>";
   } else {
     body = '<p class="label">Selected Work</p><p class="pending">Selected work coming soon.</p>';
   }
+  var links = '<div class="back-links">';
+  if (person.imdb) {
+    links += '<a class="imdb" href="' + person.imdb + '" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">IMDb ' + ARROW_ICON + "</a>";
+  }
+  if (person.slug) {
+    links += '<a class="view-profile" href="talent/' + person.slug + '/" onclick="event.stopPropagation()">View Profile ' + ARROW_ICON + "</a>";
+  }
+  links += "</div>";
   return (
     '<div class="face face-back">' +
       '<p class="name">' + escapeHtml(person.name) + "</p>" +
       '<p class="role">' + escapeHtml(person.role) + " / " + escapeHtml(divisionLabel(person.division)) + "</p>" +
       body +
+      links +
     "</div>"
   );
 }

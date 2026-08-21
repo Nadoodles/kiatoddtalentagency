@@ -23,7 +23,11 @@ var TALENT = [
     role: "Actor",
     image: "assets/talentTheatrical/danLauria.avif",
     bio: null,
-    credits: ["The Wonder Years", "Little Giants", "Independence Day"],
+    credits: [
+      { title: "The Wonder Years", category: "Television" },
+      { title: "Little Giants", category: "Film" },
+      { title: "Independence Day", category: "Film" }
+    ],
     imdb: "https://www.imdb.com/name/nm0491885/"
   },
   {
@@ -34,7 +38,11 @@ var TALENT = [
     role: "Actor",
     image: "assets/talentTheatrical/brianHooks.avif",
     bio: null,
-    credits: ["Menace II Society", "The Wood", "Blue Streak"],
+    credits: [
+      { title: "Menace II Society", category: "Film" },
+      { title: "The Wood", category: "Film" },
+      { title: "Blue Streak", category: "Film" }
+    ],
     imdb: "https://www.imdb.com/find/?q=Brian%20Hooks"
   },
   {
@@ -45,7 +53,11 @@ var TALENT = [
     role: "Actor",
     image: "assets/talentTheatrical/jazsminLewis.avif",
     bio: null,
-    credits: ["Ali", "The Best Man", "Men of Honor"],
+    credits: [
+      { title: "Ali", category: "Film" },
+      { title: "The Best Man", category: "Film" },
+      { title: "Men of Honor", category: "Film" }
+    ],
     imdb: "https://www.imdb.com/find/?q=Jazsmin%20Lewis"
   },
   { name: "Diane Robin", slug: "diane-robin", division: "theatrical", gender: "women", role: "Actor", image: "assets/talentTheatrical/dianeRobin.avif", bio: null, credits: null, imdb: null },
@@ -60,3 +72,7 @@ var TALENT = [
   { name: "Rhys Hyatt", slug: "rhys-hyatt", division: "commercial", gender: "men", role: "Actor", image: "assets/commercial/rhysHyatt.avif", bio: null, credits: null, imdb: null },
   { name: "Shani Shockley", slug: "shani-shockley", division: "commercial", gender: "women", role: "Actor", image: "assets/commercial/shaniShockley.avif", bio: null, credits: null, imdb: null }
 ];
+
+if (typeof module !== "undefined" && module.exports) {
+  module.exports = { DIVISIONS: DIVISIONS, TALENT: TALENT };
+}

@@ -24,12 +24,13 @@ function renderSiteNav() {
   var mount = document.getElementById("siteNav");
   if (!mount) return;
 
+  var root = typeof SITE_ROOT !== "undefined" ? SITE_ROOT : "";
   var currentPage = (location.pathname.split("/").pop() || "index.html");
 
   var links = NAV_LINKS.map(function (link) {
     var active = currentPage === link.href;
     return (
-      '<a class="nav-link' + (active ? " is-current" : "") + '" href="' + link.href + '"' +
+      '<a class="nav-link' + (active ? " is-current" : "") + '" href="' + root + link.href + '"' +
       (active ? ' aria-current="page"' : "") + ">" + escapeHtml(link.label) + "</a>"
     );
   }).join("");
@@ -44,7 +45,7 @@ function renderSiteNav() {
 
   mount.innerHTML =
     '<div class="nav-inner">' +
-      '<a class="nav-brand" href="index.html">Kia Todd Talent</a>' +
+      '<a class="nav-brand" href="' + root + 'index.html">Kia Todd Talent</a>' +
       '<button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navMenu" aria-label="Toggle menu">' +
         '<span></span><span></span>' +
       "</button>" +
@@ -66,8 +67,9 @@ function renderSiteFooter() {
   var mount = document.getElementById("siteFooter");
   if (!mount) return;
 
+  var root = typeof SITE_ROOT !== "undefined" ? SITE_ROOT : "";
   var links = NAV_LINKS.map(function (link) {
-    return '<a href="' + link.href + '">' + escapeHtml(link.label) + "</a>";
+    return '<a href="' + root + link.href + '">' + escapeHtml(link.label) + "</a>";
   }).join("");
 
   mount.innerHTML =

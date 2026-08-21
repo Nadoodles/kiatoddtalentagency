@@ -4,6 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kia Todd Talent — Boutique Talent Representation in Los Angeles</title>
+  <meta name="description" content="Kia Todd Talent is a SAG-AFTRA franchised, full-service talent agency in Los Angeles representing theatrical, commercial, host, voice over, and youth talent." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -13,17 +17,27 @@
   <main class="page">
 
     <section class="hero">
-      <span class="hero-eyebrow">Kia Todd Talent Agency</span>
-      <h1>Boutique talent representation in Los Angeles.</h1>
-      <p class="hero-sub">Representing emerging and established talent across theatrical, commercial, voice over, hosting, and youth work.</p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="talent.html">View Our Talent</a>
-        <a class="btn" href="submissions.html">Submit to the Agency</a>
+      <div class="hero-copy reveal">
+        <span class="hero-eyebrow">Kia Todd Talent Agency</span>
+        <h1>Boutique talent representation in Los Angeles.</h1>
+        <p class="hero-sub">Representing emerging and established talent across theatrical, commercial, voice over, hosting, and youth work.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="talent.html">View Our Talent</a>
+          <a class="btn" href="submissions.html">Submit to the Agency</a>
+        </div>
+      </div>
+      <div class="hero-media reveal" aria-hidden="true">
+        <div class="hero-photo hero-photo-a">
+          <img src="assets/talentTheatrical/jazsminLewis.avif" alt="" loading="eager" />
+        </div>
+        <div class="hero-photo hero-photo-b">
+          <img src="assets/commercial/coreyMekell.avif" alt="" loading="eager" />
+        </div>
       </div>
     </section>
 
     <section class="section" aria-labelledby="featuredHeading">
-      <div class="section-head">
+      <div class="section-head reveal">
         <h2 id="featuredHeading">Meet the Talent</h2>
         <a class="section-link" href="talent.html">View All Talent →</a>
       </div>
@@ -46,17 +60,16 @@
     </section>
 
     <section class="section" aria-labelledby="divisionsHeading">
-      <div class="section-head">
+      <div class="section-head reveal">
         <h2 id="divisionsHeading">Our Divisions</h2>
       </div>
-      <div class="divisions-grid" id="divisionsGrid"></div>
+      <div class="divisions-grid reveal" id="divisionsGrid"></div>
     </section>
 
     <section class="about" id="about" aria-labelledby="aboutHeading">
       <div class="about-inner reveal">
         <div class="about-media">
-          <span class="about-initials">KT</span>
-          <span class="about-photo-note">Photo pending</span>
+          <img src="assets/kia.avif" alt="Kia Todd, Founder &amp; CEO of Kia Todd Talent" />
         </div>
         <div class="about-copy">
           <span class="eyebrow">Founder &amp; CEO</span>
@@ -68,9 +81,30 @@
     </section>
 
     <section class="section" aria-labelledby="credibilityHeading">
-      <div class="section-head">
+      <div class="section-head reveal">
         <h2 id="credibilityHeading">Why Kia Todd Talent</h2>
+        <span class="section-eyebrow">Representation With Purpose</span>
       </div>
+
+      <div class="pillars reveal">
+        <div class="pillar">
+          <span class="pillar-name">Boutique</span>
+          <p>Personal attention to every artist — a curated roster, not a numbers game.</p>
+        </div>
+        <div class="pillar">
+          <span class="pillar-name">Experience</span>
+          <p>Industry knowledge built over years of talent development and representation.</p>
+        </div>
+        <div class="pillar">
+          <span class="pillar-name">Development</span>
+          <p>Investing in artists beyond simply placing them on a roster.</p>
+        </div>
+        <div class="pillar">
+          <span class="pillar-name">Connection</span>
+          <p>Building real relationships between talent and the industry.</p>
+        </div>
+      </div>
+
       <div class="credibility">
         <div class="credibility-item">
           <span class="label">Affiliation</span>
@@ -84,16 +118,12 @@
           <span class="label">Service</span>
           <span class="value">Full-Service Talent Representation</span>
         </div>
-        <div class="credibility-item">
-          <span class="label">Divisions</span>
-          <span class="value">Theatrical, Commercial, Host, Voice Over, Kids</span>
-        </div>
       </div>
     </section>
 
     <section class="section" style="padding-bottom:0" aria-labelledby="ctaHeading">
       <h2 id="ctaHeading" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;">Get in touch</h2>
-      <div class="cta-band">
+      <div class="cta-band reveal">
         <div class="cta-panel">
           <h3>Looking for talent?</h3>
           <a class="btn btn-primary" href="talent.html">Explore Our Roster</a>
