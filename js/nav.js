@@ -45,7 +45,9 @@ function renderSiteNav() {
 
   mount.innerHTML =
     '<div class="nav-inner">' +
-      '<a class="nav-brand" href="' + root + 'index.html">Kia Todd Talent</a>' +
+      '<a class="nav-brand" href="' + root + 'index.html">' +
+        '<img src="' + root + 'assets/logo-badge.png" alt="Kia Todd Talent Agency" />' +
+      "</a>" +
       '<button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navMenu" aria-label="Toggle menu">' +
         '<span></span><span></span>' +
       "</button>" +

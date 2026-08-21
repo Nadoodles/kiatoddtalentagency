@@ -28,6 +28,67 @@
       </div>
     </div>
 
+    <section class="section" style="margin-top:0;" aria-labelledby="formHeading">
+      <div class="section-head">
+        <h2 id="formHeading">Submission Form</h2>
+        <span class="section-eyebrow">Preview — Not Currently Open</span>
+      </div>
+
+      <form class="submission-form" aria-describedby="formClosedNote">
+        <fieldset disabled>
+          <legend class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;">Talent submission (disabled — not accepting submissions)</legend>
+
+          <div class="form-group">
+            <span class="form-label">What are you submitting for?</span>
+            <div class="checkbox-row">
+              <label class="checkbox-pill"><input type="checkbox" name="department" value="theatrical" /> Theatrical</label>
+              <label class="checkbox-pill"><input type="checkbox" name="department" value="commercial" /> Commercial</label>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="subName">Name</label>
+              <input class="form-input" id="subName" type="text" name="name" placeholder="Full name" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="subEmail">Email</label>
+              <input class="form-input" id="subEmail" type="email" name="email" placeholder="you@example.com" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <span class="form-label">Photos</span>
+            <div class="upload-row">
+              <label class="upload-field"><input type="file" name="photo1" accept="image/*" /><span>Upload Photo</span></label>
+              <label class="upload-field"><input type="file" name="photo2" accept="image/*" /><span>Upload Photo</span></label>
+              <label class="upload-field"><input type="file" name="photo3" accept="image/*" /><span>Upload Photo</span></label>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <span class="form-label">Video Reel</span>
+              <label class="upload-field"><input type="file" name="videoReel" accept="video/*" /><span>Upload Video Reel</span></label>
+            </div>
+            <div class="form-group">
+              <span class="form-label">Voice Over Reel</span>
+              <label class="upload-field"><input type="file" name="voReel" accept="audio/*" /><span>Upload Voice Over Reel</span></label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <span class="form-label">Resume</span>
+            <label class="upload-field"><input type="file" name="resume" accept=".pdf,.doc,.docx" /><span>Upload Resume</span></label>
+          </div>
+
+          <p class="form-closed-note" id="formClosedNote">No phone calls, please. No submissions at this time — we currently accept referral submissions only.</p>
+
+          <button class="btn btn-primary" type="submit" disabled>Submit</button>
+        </fieldset>
+      </form>
+    </section>
+
     <section class="section" style="margin-top:0;" aria-labelledby="beforeHeading">
       <div class="section-head">
         <h2 id="beforeHeading">Before You Submit</h2>

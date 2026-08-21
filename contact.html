@@ -34,11 +34,11 @@
         </div>
         <div class="contact-block">
           <h3>Location</h3>
-          <p>5850 Canoga Ave, Suite 400<br />Woodland Hills, CA 91367</p>
+          <p><a href="https://maps.google.com/?q=5850+Canoga+Ave+Suite+400+Woodland+Hills+CA+91367" target="_blank" rel="noopener noreferrer">5850 Canoga Ave, Suite 400<br />Woodland Hills, CA 91367</a></p>
         </div>
         <div class="contact-block">
-          <h3>Follow the Agency</h3>
-          <p>No phone calls for submissions, please — the fastest way to reach the agency is through Instagram or Facebook.</p>
+          <h3>Follow</h3>
+          <p><em>No submission calls. Please visit the Submissions page for instructions on how to submit.</em></p>
           <div class="contact-socials" id="contactSocials"></div>
         </div>
       </div>
@@ -53,11 +53,17 @@
   <script src="js/nav.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
+      var CONTACT_SOCIALS = [
+        { label: "@Kia.Todd", sub: "Kia Todd (personal)", href: "https://www.instagram.com/Kia.Todd", icon: "instagram" },
+        { label: "@KiaToddTalent", sub: "Kia Todd Talent Agency", href: "https://www.instagram.com/kia.toddtalentagency", icon: "instagram" },
+        { label: "Facebook", sub: "Kia Todd Talent Agency", href: "https://www.facebook.com/profile.php?id=100088400702302", icon: "facebook" }
+      ];
       var wrap = document.getElementById("contactSocials");
-      wrap.innerHTML = SOCIAL_LINKS.map(function (s) {
+      wrap.innerHTML = CONTACT_SOCIALS.map(function (s) {
         return (
           '<a href="' + s.href + '" target="_blank" rel="noopener noreferrer">' +
-          (SOCIAL_ICONS[s.icon] || "") + escapeHtml(s.label) +
+          (SOCIAL_ICONS[s.icon] || "") +
+          '<span><strong>' + escapeHtml(s.label) + '</strong><small>' + escapeHtml(s.sub) + '</small></span>' +
           "</a>"
         );
       }).join("");

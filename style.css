@@ -1,43 +1,43 @@
 :root{
   --font-display:"Fraunces", Georgia, "Iowan Old Style", "Times New Roman", serif;
-  --ground:#F6F3EE;
-  --ground-raised:#FFFFFF;
-  --ink:#181614;
-  --ink-soft:#5B564F;
-  --hairline:#DED7CB;
-  --accent:#7E1F27;
-  --accent-ink:#F6F3EE;
-  --mono-a:#2B2723;
-  --mono-b:#57504A;
-  --focus:#7E1F27;
-  --scrim-strong:rgba(10,8,7,.86);
-  --scrim-soft:rgba(10,8,7,0);
+  --ground:#F8F1E4;
+  --ground-raised:#F0E6D2;
+  --ink:#2A231D;
+  --ink-soft:#6B5F4F;
+  --hairline:#DED0B8;
+  --accent:#6D2430;
+  --accent-ink:#F8F1E4;
+  --mono-a:#2E2620;
+  --mono-b:#5A4C3C;
+  --focus:#6D2430;
+  --scrim-strong:rgba(24,18,12,.86);
+  --scrim-soft:rgba(24,18,12,0);
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --ground:#121110;
-    --ground-raised:#1B1917;
-    --ink:#F3EFE8;
-    --ink-soft:#A79E92;
-    --hairline:#332F2A;
-    --accent:#B4454E;
-    --accent-ink:#161211;
-    --mono-a:#2E2A26;
-    --mono-b:#4A443D;
-    --focus:#B4454E;
+    --ground:#211C17;
+    --ground-raised:#2B241D;
+    --ink:#F3EAD8;
+    --ink-soft:#B7A88F;
+    --hairline:#3E362B;
+    --accent:#C4636C;
+    --accent-ink:#211C17;
+    --mono-a:#2E2620;
+    --mono-b:#4E4133;
+    --focus:#C4636C;
   }
 }
 :root[data-theme="dark"]{
-  --ground:#121110;
-  --ground-raised:#1B1917;
-  --ink:#F3EFE8;
-  --ink-soft:#A79E92;
-  --hairline:#332F2A;
-  --accent:#B4454E;
-  --accent-ink:#161211;
-  --mono-a:#2E2A26;
-  --mono-b:#4A443D;
-  --focus:#B4454E;
+  --ground:#211C17;
+  --ground-raised:#2B241D;
+  --ink:#F3EAD8;
+  --ink-soft:#B7A88F;
+  --hairline:#3E362B;
+  --accent:#C4636C;
+  --accent-ink:#211C17;
+  --mono-a:#2E2620;
+  --mono-b:#4E4133;
+  --focus:#C4636C;
 }
 
 *{box-sizing:border-box;}
@@ -86,12 +86,15 @@ body::before{
   gap:24px;
 }
 .nav-brand{
-  font-family:var(--font-display);
-  font-size:17px;
-  letter-spacing:-.005em;
-  color:var(--ink);
+  display:flex;
+  align-items:center;
   text-decoration:none;
   white-space:nowrap;
+}
+.nav-brand img{
+  height:44px;
+  width:auto;
+  display:block;
 }
 .nav-menu{
   display:flex;
@@ -721,14 +724,14 @@ h1{
 .photo .id .name{
   font-family:var(--font-display);
   font-size:21px;
-  color:#F6F3EE;
+  color:#F8F1E4;
   letter-spacing:-.005em;
 }
 .photo .id .division{
   font-size:10px;
   letter-spacing:.14em;
   text-transform:uppercase;
-  color:rgba(246,243,238,.72);
+  color:rgba(248,241,228,.72);
   white-space:nowrap;
 }
 
@@ -740,8 +743,8 @@ h1{
   height:30px;
   border-radius:50%;
   background:rgba(10,8,7,.38);
-  border:1px solid rgba(246,243,238,.4);
-  color:#F6F3EE;
+  border:1px solid rgba(248,241,228,.4);
+  color:#F8F1E4;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -763,7 +766,7 @@ h1{
   justify-content:center;
   gap:8px;
   background:rgba(15,13,12,0);
-  color:#F6F3EE;
+  color:#F8F1E4;
   font-size:11px;
   letter-spacing:.14em;
   text-transform:uppercase;
@@ -1029,6 +1032,86 @@ h1{
   padding:7px 14px;
 }
 
+/* --- submission form (preview — disabled) --- */
+.submission-form fieldset{
+  border:0;
+  margin:0;
+  padding:0;
+  display:flex;
+  flex-direction:column;
+  gap:clamp(24px, 3.5vw, 32px);
+}
+.submission-form fieldset[disabled]{ opacity:.6; }
+.form-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:clamp(20px, 3vw, 32px);
+}
+@media (max-width:640px){
+  .form-row{ grid-template-columns:1fr; }
+}
+.form-group{ display:flex; flex-direction:column; gap:10px; }
+.form-label{
+  font-size:11px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+}
+.form-input{
+  font:inherit;
+  font-size:14px;
+  padding:12px 14px;
+  background:var(--ground-raised);
+  border:1px solid var(--hairline);
+  color:var(--ink);
+  border-radius:2px;
+}
+.form-input::placeholder{ color:var(--ink-soft); }
+.form-input:focus-visible{ outline:2px solid var(--focus); outline-offset:1px; }
+
+.checkbox-row{ display:flex; flex-wrap:wrap; gap:10px; }
+.checkbox-pill{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-size:13px;
+  color:var(--ink);
+  border:1px solid var(--hairline);
+  border-radius:999px;
+  padding:9px 16px 9px 14px;
+  cursor:pointer;
+}
+.checkbox-pill input{ accent-color:var(--accent); }
+
+.upload-row{ display:flex; flex-wrap:wrap; gap:10px; }
+.upload-field{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-size:12.5px;
+  letter-spacing:.04em;
+  color:var(--ink);
+  background:var(--ground-raised);
+  border:1px dashed var(--hairline);
+  border-radius:2px;
+  padding:12px 16px;
+  cursor:pointer;
+}
+.upload-field input{
+  position:absolute;
+  width:1px; height:1px;
+  overflow:hidden;
+  clip:rect(0 0 0 0);
+}
+
+.form-closed-note{
+  margin:0;
+  font-size:13px;
+  font-weight:600;
+  letter-spacing:.02em;
+  color:var(--accent);
+}
+
 /* --- contact page --- */
 .contact-grid{
   display:grid;
@@ -1055,23 +1138,26 @@ h1{
 .contact-block a:hover{ color:var(--accent); border-color:var(--accent); }
 .contact-socials{
   display:flex;
-  gap:14px;
+  flex-direction:column;
+  gap:10px;
   margin-top:16px;
 }
 .contact-socials a{
   display:flex;
   align-items:center;
-  gap:8px;
+  gap:12px;
   color:var(--ink);
   text-decoration:none;
-  font-size:13px;
   border:1px solid var(--hairline);
-  border-radius:999px;
-  padding:8px 16px;
-  transition:border-color .18s ease, color .18s ease;
+  border-radius:2px;
+  padding:12px 16px;
+  transition:border-color .18s ease, background .18s ease;
 }
-.contact-socials a:hover{ color:var(--accent); border-color:var(--accent); }
-.contact-socials svg{ width:15px; height:15px; }
+.contact-socials a:hover{ border-color:var(--accent); background:var(--ground-raised); }
+.contact-socials svg{ width:18px; height:18px; flex-shrink:0; }
+.contact-socials span{ display:flex; flex-direction:column; gap:2px; }
+.contact-socials strong{ font-size:13.5px; font-weight:600; }
+.contact-socials small{ font-size:11.5px; color:var(--ink-soft); }
 
 /* --- talent EPK / profile page --- */
 .epk-hero-wrap{
@@ -1124,7 +1210,7 @@ h1{
   font-size:clamp(28px, 4vw, 40px);
   font-weight:400;
   letter-spacing:-.01em;
-  color:#F6F3EE;
+  color:#F8F1E4;
   margin:0 0 12px;
   text-wrap:balance;
 }
@@ -1133,8 +1219,8 @@ h1{
   font-size:11px;
   letter-spacing:.1em;
   text-transform:uppercase;
-  color:#F6F3EE;
-  border:1px solid rgba(246,243,238,.4);
+  color:#F8F1E4;
+  border:1px solid rgba(248,241,228,.4);
   padding:6px 14px;
 }
 
