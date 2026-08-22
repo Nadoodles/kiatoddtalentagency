@@ -36,6 +36,64 @@
       </div>
     </section>
 
+    <section class="section reveal" aria-labelledby="projectsHeading">
+      <div class="section-head">
+        <h2 id="projectsHeading">Current Projects</h2>
+        <span class="section-eyebrow">Concept — For Kia's Review</span>
+      </div>
+      <p class="section-intro">A place to spotlight what represented talent is working on right now. This is a placeholder layout — no real projects are listed yet, pending Kia's approval on format and content.</p>
+      <div class="projects-grid">
+        <div class="project-card">
+          <span class="placeholder-tag">Placeholder</span>
+          <div class="project-thumb"><span>Image</span></div>
+          <div class="project-meta">
+            <span class="project-tag">Category</span>
+            <h3>Project Title</h3>
+            <p>Talent Name</p>
+          </div>
+        </div>
+        <div class="project-card">
+          <span class="placeholder-tag">Placeholder</span>
+          <div class="project-thumb"><span>Image</span></div>
+          <div class="project-meta">
+            <span class="project-tag">Category</span>
+            <h3>Project Title</h3>
+            <p>Talent Name</p>
+          </div>
+        </div>
+        <div class="project-card">
+          <span class="placeholder-tag">Placeholder</span>
+          <div class="project-thumb"><span>Image</span></div>
+          <div class="project-meta">
+            <span class="project-tag">Category</span>
+            <h3>Project Title</h3>
+            <p>Talent Name</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" aria-labelledby="newsHeading">
+      <div class="section-head">
+        <h2 id="newsHeading">News</h2>
+        <span class="section-eyebrow">Concept — For Kia's Review</span>
+      </div>
+      <p class="section-intro">Agency announcements and press mentions would live here. This is a placeholder layout — no real news is listed yet, pending Kia's approval on format and content.</p>
+      <div class="news-list">
+        <div class="news-item">
+          <span class="placeholder-tag">Placeholder</span>
+          <span class="news-date">Date</span>
+          <h3>Headline Placeholder</h3>
+          <p>A short placeholder description of the announcement or press mention would go here.</p>
+        </div>
+        <div class="news-item">
+          <span class="placeholder-tag">Placeholder</span>
+          <span class="news-date">Date</span>
+          <h3>Headline Placeholder</h3>
+          <p>A short placeholder description of the announcement or press mention would go here.</p>
+        </div>
+      </div>
+    </section>
 
   </main>
 
@@ -45,10 +103,10 @@
   <script src="js/cards.js"></script>
   <script src="js/nav.js"></script>
   <script src="js/reveal.js"></script>
-  <script src="js/home.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       var grid = document.getElementById("divisionsGrid");
+      if (!grid) return;
       grid.innerHTML = DIVISIONS.map(function (d) {
         return (
           '<a class="division-card" href="talent.html?division=' + d.id + '">' +
