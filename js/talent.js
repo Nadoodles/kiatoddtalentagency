@@ -39,12 +39,28 @@ function renderGenderFilter(genders, activeGender) {
 
 var state = { division: getParam("division") || "all", gender: "all" };
 
+// The card grid always renders in data.js order — that's the roster priority
+// order Kia controls directly, not something the UI should override.
+//
+// The "Women / Men" sub-filter tabs are labels, not roster order, so they're
+// kept in a fixed women-first order regardless of which gender happens to be
+// declared first in data.js for a given division.
+var GENDER_ORDER = { women: 0, men: 1 };
+function genderRank(gender) {
+  return GENDER_ORDER.hasOwnProperty(gender) ? GENDER_ORDER[gender] : 2;
+}
+// distinct genders present in a set of people, in the same women-first order used everywhere else
+function distinctGenders(people) {
+  return Array.from(new Set(people.map(function (p) { return p.gender; }).filter(Boolean)))
+    .sort(function (a, b) { return genderRank(a) - genderRank(b); });
+}
+
 function applyFilters() {
   var people = TALENT.filter(function (p) {
     return state.division === "all" || p.division === state.division;
   });
 
-  var genders = Array.from(new Set(people.map(function (p) { return p.gender; }).filter(Boolean)));
+  var genders = distinctGenders(people);
   if (state.gender !== "all" && genders.indexOf(state.gender) === -1) state.gender = "all";
   renderGenderFilter(genders, state.gender);
 
@@ -94,7 +110,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!btn) return;
     state.gender = btn.getAttribute("data-gender");
     renderGenderFilter(
-      Array.from(new Set(TALENT.filter(function (p) { return state.division === "all" || p.division === state.division; }).map(function (p) { return p.gender; }).filter(Boolean))),
+      distinctGenders(TALENT.filter(function (p) { return state.division === "all" || p.division === state.division; })),
       state.gender
     );
     applyFilters();
