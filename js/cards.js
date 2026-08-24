@@ -47,14 +47,19 @@ function backFace(person) {
   } else if (person.bio) {
     body = '<p class="label">About</p><p class="bio">' + escapeHtml(person.bio) + "</p>";
   } else {
-    body = '<p class="label">Selected Work</p><p class="pending">Selected work coming soon.</p>';
+    body = '<p class="label">Selected Work</p><p class="pending">More coming soon.</p>';
   }
+  // epk (when a person has a full profile page) takes priority; IMDb and Actors Access
+  // are independent external profile links and can both appear alongside it.
   var links = '<div class="back-links">';
+  if (person.epk) {
+    links += '<a class="imdb" href="' + person.epk + '" onclick="event.stopPropagation()">View Profile ' + ARROW_ICON + "</a>";
+  }
   if (person.imdb) {
     links += '<a class="imdb" href="' + person.imdb + '" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">IMDb ' + ARROW_ICON + "</a>";
   }
-  if (person.slug) {
-    links += '<a class="view-profile" href="talent/' + person.slug + '/" onclick="event.stopPropagation()">View Profile ' + ARROW_ICON + "</a>";
+  if (person.actorAccess) {
+    links += '<a class="imdb" href="' + person.actorAccess + '" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">Actors Access ' + ARROW_ICON + "</a>";
   }
   links += "</div>";
   return (
