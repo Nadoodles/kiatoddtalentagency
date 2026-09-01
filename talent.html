@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Talent Roster — Kia Todd Talent</title>
-  <meta name="description" content="Browse the full talent roster at Kia Todd Talent, filterable by theatrical and commercial divisions." />
+  <meta name="description" content="Browse the full talent roster at Kia Todd Talent." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
@@ -21,7 +21,10 @@
       <p>Explore the artists represented by Kia Todd Talent.</p>
     </div>
 
-    <nav class="divisions" id="talentDivisions" aria-label="Filter by division"></nav>
+    <!-- Division filter (All / Theatrical) disabled for now — only one division exists,
+         so the tabs are redundant. Re-enable in js/talent.js once there's a filter
+         worth showing. -->
+    <nav class="divisions" id="talentDivisions" aria-label="Filter by division" hidden></nav>
     <div class="subfilter-row" id="genderFilter" hidden></div>
 
     <div class="talent-grid" id="talentGrid"></div>

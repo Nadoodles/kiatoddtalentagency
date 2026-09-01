@@ -96,14 +96,16 @@ function setDivision(id) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  renderDivisionTabs(state.division);
+  // Division tabs (All / Theatrical) disabled for now — see talent.html. Re-enable
+  // both lines below once there's more than one division to filter by.
+  // renderDivisionTabs(state.division);
   applyFilters();
 
-  document.getElementById("talentDivisions").addEventListener("click", function (e) {
-    var tab = e.target.closest(".tab");
-    if (!tab) return;
-    setDivision(tab.getAttribute("data-division"));
-  });
+  // document.getElementById("talentDivisions").addEventListener("click", function (e) {
+  //   var tab = e.target.closest(".tab");
+  //   if (!tab) return;
+  //   setDivision(tab.getAttribute("data-division"));
+  // });
 
   document.getElementById("genderFilter").addEventListener("click", function (e) {
     var btn = e.target.closest(".subfilter");
