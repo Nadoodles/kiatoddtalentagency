@@ -1,5 +1,6 @@
 var DIVISIONS = [
-  { id: "theatrical", label: "Theatrical", tagline: "Film & Television" }
+  { id: "theatrical", label: "Theatrical", tagline: "Film & Television" },
+  { id: "kids", label: "Kids", tagline: "Everything" },
 ];
 
 function divisionLabel(id) {
@@ -156,6 +157,18 @@ var TALENT = [
   { name: "Tyler McKenna", slug: "tyler-mckenna", division: "theatrical", gender: "men", role: "Actor", image: "assets/talentTheatrical/tylerMcKenna.avif", bio: null, credits: null, imdb: "https://www.imdb.com/name/nm4669753/", actorAccess: null, epk: null },
   { name: "Wendell Kinney", slug: "wendell-kinney", division: "theatrical", gender: "men", role: "Actor", image: "assets/talentTheatrical/wendellKinney.avif", bio: null, credits: null, imdb: "https://www.imdb.com/name/nm3800780/", actorAccess: null, epk: null },
 
+
+  // Kids Section
+  { name: "Anakin Vladymir Rodriguez", slug: "anakin-vladymir-rodriguez", division: "kids", gender: "boy", role: "Actor", image: "assets/kidsTalent/anakinVladymirRodriguez.avif", bio: null, credits: null, imdb: null, actorAccess: null, epk: null },
+  { name: "Beau Rush", slug: "beau-rush", division: "kids", gender: "boy", role: "Actor", image: "assets/kidsTalent/beauRusch.avif", bio: null, credits: null, imdb: null, actorAccess: null, epk: null },
+  { name: "Carter Jones-Figures", slug: "carter-jones-figures", division: "kids", gender: "boy", role: "Actor", image: "assets/kidsTalent/carterJonesFigures.avif", bio: null, credits: null, imdb: null, actorAccess: null, epk: null },
+  { name: "Grey Reusch", slug: "grey-reusch", division: "kids", gender: "boy", role: "Actor", image: "assets/kidsTalent/greyReusch.avif", bio: null, credits: null, imdb: null, actorAccess: null, epk: null },
+  {name: "Jolie", slug: "jolie", division: "kids", gender: "girl", role: "Actor", image: "assets/kidsTalent/jolie.avif", bio: null, credits: null, imdb: null, actorAccess: null, epk: null},
+  {name: "Kailen Dean", slug: "kailen-dean", division: "kids", gender: "boy", role: "Actor", image: "assets/kidsTalent/kailenDean.avif", bio: null, credits: null, imdb: null, actorAccess: null, epk: null},
+  {name: "Kayla Heywood", slug: "kayla-heywood", division: "kids", gender: "girl", role: "Actor", image: "assets/kidsTalent/kaylaHeywood.avif", bio: null, credits: null, imdb: null, actorAccess: null, epk: null},
+  {name: "Lawrence Addams", slug: "lawrence-addams", division: "kids", gender: "boy", role: "Actor", image: "assets/kidsTalent/lawrenceAdams.avif", bio: null, credits: null, imdb: null, actorAccess: null, epk: null},
+  {name: "Peyton Patton", slug: "peyton-patton", division: "kids", gender: "girl", role: "Actor", image: "assets/kidsTalent/peytonPatton.avif", bio: null, credits: null, imdb: null, actorAccess: null, epk: null},
+  {name: "Zoe Peng", slug: "zoe-peng", division: "kids", gender: "girl", role: "Actor", image: "assets/kidsTalent/zoePeng.avif", bio: null, credits: null, imdb: null, actorAccess: null, epk: null}
 ];
 
 if (typeof module !== "undefined" && module.exports) {

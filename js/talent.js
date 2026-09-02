@@ -24,8 +24,9 @@ function renderGenderFilter(genders, activeGender) {
     return;
   }
   wrap.hidden = false;
+  var GENDER_LABELS = { women: "Women", men: "Men", girl: "Girls", boy: "Boys" };
   var options = [{ id: "all", label: "All" }].concat(
-    genders.map(function (g) { return { id: g, label: g === "women" ? "Women" : "Men" }; })
+    genders.map(function (g) { return { id: g, label: GENDER_LABELS[g] || g }; })
   );
   wrap.innerHTML = options.map(function (o) {
     var active = o.id === activeGender;
@@ -42,10 +43,11 @@ var state = { division: getParam("division") || "all", gender: "all" };
 // The card grid always renders in data.js order — that's the roster priority
 // order Kia controls directly, not something the UI should override.
 //
-// The "Women / Men" sub-filter tabs are labels, not roster order, so they're
-// kept in a fixed women-first order regardless of which gender happens to be
-// declared first in data.js for a given division.
-var GENDER_ORDER = { women: 0, men: 1 };
+// The "Women / Men" (and "Girls / Boys") sub-filter tabs are labels, not roster
+// order, so they're kept in a fixed order — female-labeled before male-labeled —
+// regardless of which gender happens to be declared first in data.js for a
+// given division.
+var GENDER_ORDER = { women: 0, men: 1, girl: 2, boy: 3 };
 function genderRank(gender) {
   return GENDER_ORDER.hasOwnProperty(gender) ? GENDER_ORDER[gender] : 2;
 }
