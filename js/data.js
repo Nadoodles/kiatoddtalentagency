@@ -49,6 +49,10 @@ var TALENT = [
   { name: "Mo Ashley", slug: "mo-ashley", division: "theatrical", gender: "women", role: "Actor", image: "assets/talentTheatrical/moAshley.avif", bio: null, credits: null, imdb: "https://www.imdb.com/name/nm14508199/", actorAccess: null, epk: null },
   { name: "Amalla Grace", slug: "amalla-grace", division: "theatrical", gender: "women", role: "Actor", image: "assets/talentTheatrical/AmallaGrace.avif", bio: null, credits: null, imdb: "https://www.imdb.com/name/nm15106935/", actorAccess: null, epk: null },
   { name: "Nicole Peplinski", slug: "nicole-peplinski", division: "theatrical", gender: "women", role: "Actor", image: "assets/talentTheatrical/nicolePeplinski.avif", bio: null, credits: null, imdb: "https://www.imdb.com/name/nm2624734/", actorAccess: null, epk: null },
+  { name: "Alice Prime", slug: "alice-prime", division: "theatrical", gender: "women", role: "Actor", image: "assets/commercial/alicePrime.avif", bio: null, credits: null, imdb: "https://www.imdb.com/name/nm5292811/", actorAccess: null, epk: null },
+  { name: "Shani Shockley", slug: "shani-shockley", division: "theatrical", gender: "women", role: "Actor", image: "assets/commercial/shaniShockley.avif", bio: null, credits: null, imdb: "https://www.imdb.com/name/nm2998826/", actorAccess: null, epk: null },
+  { name: "Olivia D. Robinson", slug: "olivia-d-robinson", division: "theatrical", gender: "women", role: "Actor", image: "assets/commercial/oliviaDRobinson.avif", bio: null, credits: null, imdb: "https://www.imdb.com/name/nm2307513/", actorAccess: null, epk: null },
+  { name: "Lindsay Mushett", slug: "lindsay-mushett", division: "theatrical", gender: "women", role: "Actor", image: "assets/commercial/lindsayMushett.avif", bio: null, credits: null, imdb: "https://www.imdb.com/name/nm7512906/", actorAccess: null, epk: null },
   { name: "Maria Caruso", slug: "maria-caruso", division: "theatrical", gender: "women", role: "Actor", image: "assets/talentTheatrical/mariaCaruso.avif", bio: null, credits: null, imdb: "https://www.imdb.com/name/nm14340472/", actorAccess: null, epk: null },
   { name: "Angelique Wyche", slug: "angelique-wyche", division: "theatrical", gender: "women", role: "Actor", image: "assets/talentTheatrical/angeliqueWyche.avif", bio: null, credits: null, imdb: "https://www.imdb.com/name/nm13265141/", actorAccess: null, epk: null },
   { name: "Rebecca Ritz", slug: "rebecca-ritz", division: "theatrical", gender: "women", role: "Actor", image: "assets/talentTheatrical/rebeccaRitz.avif", bio: null, credits: null, imdb: "https://www.imdb.com/name/nm1179821/", actorAccess: null, epk: null },
@@ -114,6 +118,8 @@ var TALENT = [
     actorAccess: null,
     epk: null
   },
+  { name: "Corey Mekell", slug: "corey-mekell", division: "theatrical", gender: "men", role: "Actor", image: "assets/commercial/coreyMekell.avif", bio: null, credits: null, imdb: null, actorAccess: null, epk: "https://express.adobe.com/page/1JQ0SOIHfIdQZ/" },
+  { name: "Rhys Hyatt", slug: "rhys-hyatt", division: "theatrical", gender: "men", role: "Actor", image: "assets/commercial/rhysHyatt.avif", bio: null, credits: null, imdb: "https://www.imdb.com/name/nm9277608/", actorAccess: null, epk: null },
   { name: "Troy Anthony Brookins", slug: "troy-anthony-brookins", division: "theatrical", gender: "men", role: "Actor", image: "assets/talentTheatrical/troyBrookins.avif", bio: null, credits: null, imdb: "https://www.imdb.com/name/nm10170027/", actorAccess: null, epk: null },
   { name: "Michael Colyar", slug: "michael-colyar", division: "theatrical", gender: "men", role: "Actor", image: "assets/talentTheatrical/michaelColyar.avif", bio: null, credits: null, imdb: "https://www.imdb.com/name/nm0173485/", actorAccess: null, epk: null },
   { name: "Vic Brewski", slug: "vic-brewski", division: "theatrical", gender: "men", role: "Actor", image: "assets/talentTheatrical/vicBrewski.avif", bio: null, credits: null, imdb: "https://www.imdb.com/name/nm13446695/", actorAccess: null, epk: null },
@@ -150,6 +156,7 @@ var TALENT = [
   { name: "Chris Wang", slug: "chris-wang", division: "theatrical", gender: "men", role: "Actor", image: "assets/talentTheatrical/chrisWang.avif", bio: null, credits: null, imdb: null, actorAccess: null, epk: null },
   { name: "Tyler McKenna", slug: "tyler-mckenna", division: "theatrical", gender: "men", role: "Actor", image: "assets/talentTheatrical/tylerMcKenna.avif", bio: null, credits: null, imdb: "https://www.imdb.com/name/nm4669753/", actorAccess: null, epk: null },
   { name: "Wendell Kinney", slug: "wendell-kinney", division: "theatrical", gender: "men", role: "Actor", image: "assets/talentTheatrical/wendellKinney.avif", bio: null, credits: null, imdb: "https://www.imdb.com/name/nm3800780/", actorAccess: null, epk: null },
+
 ];
 
 if (typeof module !== "undefined" && module.exports) {
