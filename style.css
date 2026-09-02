@@ -602,7 +602,7 @@ body::before{
   margin:0 auto;
   padding:0 clamp(20px, 6vw, 56px) clamp(56px, 8vw, 96px);
   display:grid;
-  grid-template-columns:repeat(auto-fill, minmax(260px, 1fr));
+  grid-template-columns:repeat(3, 1fr);
   gap:clamp(18px, 2.4vw, 28px);
 }
 .talent-grid .card{ width:100%; }
