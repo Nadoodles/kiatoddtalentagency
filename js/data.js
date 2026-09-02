@@ -150,8 +150,6 @@ var TALENT = [
   { name: "Chris Wang", slug: "chris-wang", division: "theatrical", gender: "men", role: "Actor", image: "assets/placeholder-headshot.svg", bio: null, credits: null, imdb: null, actorAccess: null, epk: null },
   { name: "Tyler McKenna", slug: "tyler-mckenna", division: "theatrical", gender: "men", role: "Actor", image: "assets/placeholder-headshot.svg", bio: null, credits: null, imdb: "https://www.imdb.com/name/nm4669753/", actorAccess: null, epk: null },
   { name: "Wendell Kinney", slug: "wendell-kinney", division: "theatrical", gender: "men", role: "Actor", image: "assets/placeholder-headshot.svg", bio: null, credits: null, imdb: "https://www.imdb.com/name/nm3800780/", actorAccess: null, epk: null },
-  { name: "Glenn Rivera", slug: "glenn-rivera", division: "theatrical", gender: "men", role: "Actor", image: "assets/placeholder-headshot.svg", bio: null, credits: null, imdb: "https://www.imdb.com/name/nm13789671/", actorAccess: null, epk: null },
-
 ];
 
 if (typeof module !== "undefined" && module.exports) {
