@@ -1,8 +1,14 @@
 var NAV_LINKS = [
+  { label: "Home", href: "index.html" },
   { label: "Talent", href: "talent.html" },
   { label: "About", href: "about.html" },
   { label: "Submissions", href: "submissions.html" },
   { label: "Contact", href: "contact.html" }
+];
+
+var LEGAL_LINKS = [
+  { label: "Privacy Policy", href: "privacy-policy.html" },
+  { label: "Accessibility", href: "accessibility.html" }
 ];
 
 var SOCIAL_LINKS = [
@@ -70,14 +76,48 @@ function renderSiteFooter() {
   if (!mount) return;
 
   var root = typeof SITE_ROOT !== "undefined" ? SITE_ROOT : "";
-  var links = NAV_LINKS.map(function (link) {
+
+  var navLinks = NAV_LINKS.map(function (link) {
     return '<a href="' + root + link.href + '">' + escapeHtml(link.label) + "</a>";
   }).join("");
 
+  var divisionLinks = (typeof DIVISIONS !== "undefined" ? DIVISIONS : []).map(function (d) {
+    return '<a href="' + root + 'talent.html?division=' + d.id + '">' + escapeHtml(d.label) + "</a>";
+  }).join("");
+
+  var social = SOCIAL_LINKS.map(function (s) {
+    return (
+      '<a href="' + s.href + '" target="_blank" rel="noopener noreferrer" aria-label="' + escapeHtml(s.label) + '">' +
+      (SOCIAL_ICONS[s.icon] || "") + "<span>" + escapeHtml(s.label) + "</span>" +
+      "</a>"
+    );
+  }).join("");
+
   mount.innerHTML =
-    '<span class="foot-brand">Kia Todd Talent</span>' +
-    '<div class="foot-links">' + links + "</div>" +
-    '<span class="foot-meta">&copy; ' + new Date().getFullYear() + " Kia Todd Talent Agency</span>";
+    '<div class="foot-top">' +
+      '<div class="foot-col foot-brand-col">' +
+        '<span class="foot-brand">Kia Todd Talent</span>' +
+        '<p class="foot-tagline">Boutique talent representation in Los Angeles.</p>' +
+      "</div>" +
+      '<div class="foot-col">' +
+        '<span class="foot-col-title">Navigation</span>' +
+        '<div class="foot-links">' + navLinks + "</div>" +
+      "</div>" +
+      '<div class="foot-col">' +
+        '<span class="foot-col-title">Divisions</span>' +
+        '<div class="foot-links">' + divisionLinks + "</div>" +
+      "</div>" +
+      '<div class="foot-col">' +
+        '<span class="foot-col-title">Social</span>' +
+        '<div class="foot-links foot-socials">' + social + "</div>" +
+      "</div>" +
+    "</div>" +
+    '<div class="foot-bottom">' +
+      '<span class="foot-meta">&copy; ' + new Date().getFullYear() + " Kia Todd Talent Agency</span>" +
+      '<div class="foot-legal">' + LEGAL_LINKS.map(function (link) {
+        return '<a href="' + root + link.href + '">' + escapeHtml(link.label) + "</a>";
+      }).join("") + "</div>" +
+    "</div>";
 }
 
 document.addEventListener("DOMContentLoaded", function () {

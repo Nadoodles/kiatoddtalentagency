@@ -38,7 +38,7 @@ function renderGenderFilter(genders, activeGender) {
   }).join("");
 }
 
-var state = { division: getParam("division") || "all", gender: "all" };
+var state = { division: getParam("division") || "all", gender: "all", search: "" };
 
 // The card grid always renders in data.js order — that's the roster priority
 // order Kia controls directly, not something the UI should override.
@@ -70,6 +70,11 @@ function applyFilters() {
     people = people.filter(function (p) { return p.gender === state.gender; });
   }
 
+  var query = state.search.trim().toLowerCase();
+  if (query) {
+    people = people.filter(function (p) { return p.name.toLowerCase().indexOf(query) !== -1; });
+  }
+
   var grid = document.getElementById("talentGrid");
   var empty = document.getElementById("talentEmpty");
 
@@ -77,6 +82,7 @@ function applyFilters() {
     grid.innerHTML = "";
     grid.hidden = true;
     empty.hidden = false;
+    empty.textContent = query ? "No talent matches that search." : "New talent for this division is coming soon.";
     return;
   }
 
@@ -98,16 +104,14 @@ function setDivision(id) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  // Division tabs (All / Theatrical) disabled for now — see talent.html. Re-enable
-  // both lines below once there's more than one division to filter by.
-  // renderDivisionTabs(state.division);
+  renderDivisionTabs(state.division);
   applyFilters();
 
-  // document.getElementById("talentDivisions").addEventListener("click", function (e) {
-  //   var tab = e.target.closest(".tab");
-  //   if (!tab) return;
-  //   setDivision(tab.getAttribute("data-division"));
-  // });
+  document.getElementById("talentDivisions").addEventListener("click", function (e) {
+    var tab = e.target.closest(".tab");
+    if (!tab) return;
+    setDivision(tab.getAttribute("data-division"));
+  });
 
   document.getElementById("genderFilter").addEventListener("click", function (e) {
     var btn = e.target.closest(".subfilter");
@@ -117,6 +121,11 @@ document.addEventListener("DOMContentLoaded", function () {
       distinctGenders(TALENT.filter(function (p) { return state.division === "all" || p.division === state.division; })),
       state.gender
     );
+    applyFilters();
+  });
+
+  document.getElementById("talentSearch").addEventListener("input", function (e) {
+    state.search = e.target.value;
     applyFilters();
   });
 });

@@ -100,7 +100,7 @@ var TALENT = [
   },
   { name: "Cornell Young", slug: "cornell-young", division: "theatrical", gender: "men", role: "Actor", image: "assets/talentTheatrical/cornellYoung.avif", bio: null, credits: null, imdb: "https://www.imdb.com/name/nm15998059/", actorAccess: null, epk: null },
   { name: "Miguel A Nunez Jr", slug: "miguel-a-nunez-jr", division: "theatrical", gender: "men", role: "Actor", image: "assets/talentTheatrical/miguelNunezJr.avif", bio: null, credits: null, imdb: "https://www.imdb.com/name/nm0639200/", actorAccess: null, epk: null },
-  { name: "Jay Phillips", slug: "jay-phillips", division: "theatrical", gender: "men", role: "Actor", image: "assets/talentTheatrical/jayPhillips.png", bio: null, credits: null, imdb: "https://www.imdb.com/name/nm1521239/", actorAccess: null, epk: null },
+  { name: "Jay Phillips", slug: "jay-phillips", division: "theatrical", gender: "men", role: "Actor", image: "assets/talentTheatrical/jayPhillips.avif", bio: null, credits: null, imdb: "https://www.imdb.com/name/nm1521239/", actorAccess: null, epk: null },
   {
     name: "Brian Hooks",
     slug: "brian-hooks",

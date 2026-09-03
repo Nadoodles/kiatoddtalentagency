@@ -34,9 +34,18 @@
         <span class="section-eyebrow">Preview — Not Currently Open</span>
       </div>
 
-      <form class="submission-form" aria-describedby="formClosedNote">
+      <!--
+        Submits to a Cloudflare Pages Function at /api/submit (see functions/api/submit.js).
+        The fieldset stays disabled — and this whole form inert — until Kia approves
+        opening submissions; see the "Current Status" notice above. The `company` field
+        is a honeypot: hidden from real visitors via CSS, so anything that fills it in
+        gets silently redirected instead of emailed.
+      -->
+      <form class="submission-form" action="/api/submit" method="POST" enctype="multipart/form-data" aria-describedby="formClosedNote">
         <fieldset disabled>
           <legend class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;">Talent submission (disabled — not accepting submissions)</legend>
+
+          <input type="text" name="company" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;" aria-hidden="true" />
 
           <div class="form-group">
             <span class="form-label">What are you submitting for?</span>

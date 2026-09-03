@@ -21,10 +21,11 @@
       <p>Explore the artists represented by Kia Todd Talent.</p>
     </div>
 
-    <!-- Division filter (All / Theatrical) disabled for now — only one division exists,
-         so the tabs are redundant. Re-enable in js/talent.js once there's a filter
-         worth showing. -->
-    <nav class="divisions" id="talentDivisions" aria-label="Filter by division" hidden></nav>
+    <div class="talent-search">
+      <input type="search" id="talentSearch" placeholder="Search talent…" aria-label="Search talent by name" />
+    </div>
+
+    <nav class="divisions" id="talentDivisions" aria-label="Filter by division"></nav>
     <div class="subfilter-row" id="genderFilter" hidden></div>
 
     <div class="talent-grid" id="talentGrid"></div>
