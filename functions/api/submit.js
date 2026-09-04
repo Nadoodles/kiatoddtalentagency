@@ -26,13 +26,21 @@ export async function onRequestPost({ request, env }) {
 
   const name = (form.get("name") || "").toString().trim();
   const email = (form.get("email") || "").toString().trim();
+  const phone = (form.get("phone") || "").toString().trim();
+  const age = (form.get("age") || "").toString().trim();
+  const city = (form.get("city") || "").toString().trim();
+  const referral = (form.get("referral") || "").toString().trim();
   const departments = form.getAll("department").map(String);
+  const guardianConfirmed = form.get("guardianConfirmed") === "yes";
 
   if (!name || !email) {
     return json({ error: "Name and email are required." }, 400);
   }
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     return json({ error: "That email address doesn't look right." }, 400);
+  }
+  if (!guardianConfirmed) {
+    return json({ error: "Please confirm the age/guardian statement before submitting." }, 400);
   }
 
   const uploads = [];
@@ -57,7 +65,7 @@ export async function onRequestPost({ request, env }) {
     storedLinks.push({ field, key });
   }
 
-  await sendNotificationEmail(env, { submissionId, name, email, departments, storedLinks });
+  await sendNotificationEmail(env, { submissionId, name, email, phone, age, city, referral, departments, storedLinks });
 
   return Response.redirect(new URL("/submissions-thanks.html", request.url), 303);
 }
@@ -66,7 +74,9 @@ function sanitizeFilename(name) {
   return name.replace(/[^a-zA-Z0-9._-]/g, "_").slice(-100);
 }
 
-async function sendNotificationEmail(env, { submissionId, name, email, departments, storedLinks }) {
+async function sendNotificationEmail(env, { submissionId, name, email, phone, age, city, referral, departments, storedLinks }) {
+  // These are private R2 object keys, not public URLs — the bucket isn't public, so
+  // retrieving a file means pulling it via the R2 dashboard/API, not clicking a link.
   const fileLines = storedLinks.length
     ? storedLinks.map((f) => `  - ${f.field}: ${f.key}`).join("\n")
     : "  (no files uploaded)";
@@ -76,9 +86,13 @@ async function sendNotificationEmail(env, { submissionId, name, email, departmen
     ``,
     `Name: ${name}`,
     `Email: ${email}`,
+    `Phone: ${phone || "(not provided)"}`,
+    `Age: ${age || "(not provided)"}`,
+    `Current city: ${city || "(not provided)"}`,
+    `Referred by: ${referral || "(not provided)"}`,
     `Submitting for: ${departments.join(", ") || "(not specified)"}`,
     ``,
-    `Files stored in R2 (SUBMISSIONS_BUCKET):`,
+    `Files stored privately in R2 (SUBMISSIONS_BUCKET — retrieve via R2 dashboard/API):`,
     fileLines,
   ].join("\n");
 
