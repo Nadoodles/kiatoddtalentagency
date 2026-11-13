@@ -12,18 +12,14 @@ var LEGAL_LINKS = [
 ];
 
 var SOCIAL_LINKS = [
-  { label: "Instagram", href: "https://www.instagram.com/kia.toddtalentagency", icon: "instagram" },
-  { label: "Facebook", href: "https://www.facebook.com/profile.php?id=100088400702302", icon: "facebook" }
+  { label: "Instagram", href: "https://www.instagram.com/kia.toddtalentagency", icon: "instagram" }
 ];
 
 var SOCIAL_ICONS = {
   instagram:
     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">' +
     '<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/>' +
-    '<circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg>',
-  facebook:
-    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">' +
-    '<path d="M15 8h2V5h-2c-2 0-3.5 1.5-3.5 3.5V11H9v3h2.5v6h3v-6H17l.5-3h-3V8.7c0-.4.3-.7.5-.7z"/></svg>'
+    '<circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg>'
 };
 
 function renderSiteNav() {
